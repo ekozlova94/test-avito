@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  test-avito:
+    image: docker.io/elkozlova/test-avito:latest
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "6000:6000"
+    environment:
+      SERVER.PORT: 6000
+      DATABASE.URL: postgresql://admin:admin@postgres:5432/subscription
+      KEY: af0deccbgcgidddjgnvljitntccdduijhdinfgjgfjir
+      EMAIL-AUTH.HOST: smtp.gmail.com
+      EMAIL-AUTH.PORT: 587
+      EMAIL-AUTH.LOGIN: test.sender.avito@gmail.com
+      EMAIL-AUTH.PASSWORD: test.10.2020
+      EMAIL-AUTH.SENDER: test.sender.avito@gmail.com
+  postgres:
+    image: "postgres:13.0"
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: subscription

@@ -1,0 +1,11 @@
+server:
+  port: 7000
+database:
+  url: postgresql://admin:admin@localhost:5432/subscription
+key: af0deccbgcgidddjgnvljitntccdduijhdinfgjgfjir
+email-auth:
+  login: test.sender.avito@gmail.com
+  password: test.10.2020
+  host: smtp.gmail.com
+  port: 587
+  sender: test.sender.avito@gmail.com
